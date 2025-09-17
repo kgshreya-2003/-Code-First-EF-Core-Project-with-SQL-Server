@@ -49,3 +49,31 @@ Install these packages for EF Core Code-First and migrations:
 dotnet add package Microsoft.EntityFrameworkCore.SqlServer
 dotnet add package Microsoft.EntityFrameworkCore.Tools
 ```
+
+##  🔌 Scaffolding Models from Existing SQL Server DB
+
+ - Using EF Core CLI
+```
+dotnet ef migrations add InitialCreate
+dotnet ef database update
+```
+---
+## 🚀 Run the Application
+
+Follow these steps to get the application up and running locally:
+
+- Clone the Repository
+
+  ```
+  git clone https://github.com/your-username/your-repo.git
+  cd your-repo
+  ```
+- Build Project
+  ```
+  dotnet build
+  ```
+- Run the Project
+  ```
+  dotnet run
+  ```
+---
