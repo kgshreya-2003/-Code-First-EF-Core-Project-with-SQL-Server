@@ -1,0 +1,34 @@
+Query dbo.Books:
+
+CREATE TABLE [dbo].[Books] (
+    [BookId] INT            IDENTITY (1, 1) NOT NULL,
+    [Title]  NVARCHAR (MAX) NOT NULL,
+    [ISBN]   NVARCHAR (MAX) NOT NULL,
+    CONSTRAINT [PK_Books] PRIMARY KEY CLUSTERED ([BookId] ASC)
+);
+
+
+Query dbo.BorrowRecords :
+
+CREATE TABLE [dbo].[BorrowRecords] (
+    [BorrowRecordId] INT           IDENTITY (1, 1) NOT NULL,
+    [BookId]         INT           NOT NULL,
+    [UserId]         INT           NOT NULL,
+    [BorrowDate]     DATETIME2 (7) NOT NULL,
+    CONSTRAINT [PK_BorrowRecords] PRIMARY KEY CLUSTERED ([BorrowRecordId] ASC),
+    CONSTRAINT [FK_BorrowRecords_Books_BookId] FOREIGN KEY ([BookId]) REFERENCES [dbo].[Books] ([BookId]) ON DELETE CASCADE,
+    CONSTRAINT [FK_BorrowRecords_Users_UserId] FOREIGN KEY ([UserId]) REFERENCES [dbo].[Users] ([UserId]) ON DELETE CASCADE
+);
+
+
+Query dbo.Users : 
+
+CREATE TABLE [dbo].[Users] (
+    [UserId]    INT            IDENTITY (1, 1) NOT NULL,
+    [FirstName] NVARCHAR (MAX) NOT NULL,
+    CONSTRAINT [PK_Users] PRIMARY KEY CLUSTERED ([UserId] ASC)
+);
+
+
+
+ 
